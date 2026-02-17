@@ -155,9 +155,16 @@ sHMM=function(train,test,s.train,s.test,modello,p)
   }
   
   prev.test=apply(py.x,1,which.max)
+  
+  
+  misc=function(a1,a2)
+  {
+    library(mclust)
+    return(classError(a1,a2)$error)
+  }
+  
   mr=misc(prev.test,s.test)
   
   return(mr)
 }
-
 
